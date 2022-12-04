@@ -14,7 +14,7 @@ def scanner(mask):
 						mac=subprocess.getoutput(f"arp -a {str(i)}.{str(ii)}.{str(iii)}.{str(iiii)}").split()[-3]
 						vendor=requests.get("https://api.macvendors.com/"+mac).content.decode()
 						if not "error" in vendor:print(f"{Fore.GREEN}Connected{Fore.RESET}:",i,ii,iii,iiii,f"with{Fore.GREEN}",vendor,"device",Fore.RESET)
-						else:print(f"{Fore.GREEN}Connected{Fore.RESET}:",i,ii,iii,iiii,f"with {Fore.RED}unknown{Fore.RESET} device")
+						else:print(f"{Fore.GREEN}Connected{Fore.RESET}:",f"{str(i)}.{str(ii)}.{str(iii)}.{str(iiii)}",f"with {Fore.RED}unknown{Fore.RESET} device")
 					else:
 						pass
 						print(f"# {Fore.YELLOW}Scanning{Fore.RESET}:",i,ii,iii,iiii,"    ",end="\r")
